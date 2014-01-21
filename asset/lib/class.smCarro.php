@@ -57,7 +57,7 @@ class smCarro
    *
    * @var array()
    **/
-  private var $data = null;
+  private $data = null;
 
   /**
    * carga las variables de seccion del carrito $en data
@@ -106,7 +106,7 @@ class smCarro
    *
    * @var class smCarro
    **/
-  static private var $instance=null;
+  static private $instance=null;
   /**
    * devuelve instancia de smCarro
    *
@@ -122,6 +122,6 @@ class smCarro
   static public function init() {
     if( is_admin() ) return null;
     if( self::getInstance() == null ) self::$instance = new self();
-    return self::$instance
+    return self::$instance;
   } 
 }
