@@ -4,16 +4,15 @@
  {
 
   function __construct() {
-    $this->key = '_SimpleMercado_'.md5( serialize(smConfig::$data) ).'_carro';
 
     add_filter('simpleMercado_ajax_add_carro_controller', array( $this, 'filters_actionProductoAdd' ) , 10, 2);
     add_filter('simpleMercado_ajax_add_carro_response',   array( $this, 'filters_responseProductoAdd' ) , 10, 2);    
 
     if( ! ($request = $this->validateInteraction()) ) return;
 
-    $request = apply_filters( 'simpleMercado_ajax_'.$request['action'].'_request', $request );
+    $request = apply_filters( 'simpleMercado_ajax_'.$request['action'].'_request',    $request );
           $r = apply_filters( 'simpleMercado_ajax_'.$request['action'].'_controller', array( 'error'=>0, 'txt'=>'', 'exit' => 0 ), $request );
-          $r = apply_filters( 'simpleMercado_ajax_'.$request['action'].'_response', $r, $request );
+          $r = apply_filters( 'simpleMercado_ajax_'.$request['action'].'_response',   $r, $request );
 
     if($r['exit'] == 1) { exit(); }
     return;
