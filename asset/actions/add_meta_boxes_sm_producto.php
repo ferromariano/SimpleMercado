@@ -1,0 +1,1 @@
+<?php smProductoAdmin::init()->addMetaBox();
