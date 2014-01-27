@@ -9,6 +9,20 @@
 
     <table class="form-table">
       <tr valign="top">
+        <th scope="row"><label for="blogname">Pagina Home</label></th>
+        <td>
+          <?php wp_dropdown_pages(array(
+            'sort_order'   => 'ASC',
+            'sort_column'  => 'post_title',            
+            'depth'            => 0,
+            'child_of'         => 0,
+            'selected'         => smAdmin::get('paginas/home', '0'),
+            'echo'             => 1,
+            'name'             => 'sm_rapido[paginas/home]'
+          )); ?>
+          <span class="description">Que pagina se usara para la home</span></td>
+      </tr>
+      <tr valign="top">
         <th scope="row"><label for="blogname">Vista Home</label></th>
         <td>
           <fieldset>
@@ -31,7 +45,7 @@
                                 'show_option_none'   => 'Seleccionar categoria',
                                 'orderby'            => 'name', 
                                 'order'              => 'DESC',
-                                'show_count'         => 0,
+                                'show_count'         => 1,
                                 'hide_empty'         => 0, 
                                 'child_of'           => 0,
                                 'exclude'            => '',
@@ -62,7 +76,7 @@
                                 'show_option_none'   => 'Seleccionar categoria',
                                 'orderby'            => 'name', 
                                 'order'              => 'DESC',
-                                'show_count'         => 0,
+                                'show_count'         => 1,
                                 'hide_empty'         => 0, 
                                 'child_of'           => 0,
                                 'exclude'            => '',

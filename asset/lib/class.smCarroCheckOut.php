@@ -15,7 +15,6 @@ class smCarroCheckOut extends smCarro {
 
     $this->actionCheckOut();
 
-
   }
   /**
    * Valida si el formulario del carrito 
@@ -30,8 +29,7 @@ class smCarroCheckOut extends smCarro {
    *
    * @return void
    **/
-  function actionCheckOut() {
-
+  function actionCheckOut($request) {
   }
   function response_page_after($r='') {
 //    add_filter('simpleMercado_carro_page_response',   array( $this, '' ) , 10, 2);    

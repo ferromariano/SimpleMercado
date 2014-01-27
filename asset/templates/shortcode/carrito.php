@@ -11,7 +11,9 @@
         <?php foreach ( $attr['carro/productos'] as $v ): ?>
         <tr>
           <td class="row_name"><h3><?php echo $v['name'] ?></h3><br /><?php echo $v['desc'] ?></td>
-          <td class="row_count"><input type="number" value="<?php echo $v['count']; ?>" /></td>
+          <td class="row_count">
+<?php echo productoCantidad( array( 'producto_id' => $v['post']->ID ) ) ?>
+          <input type="number" value="<?php echo $v['count']; ?>" /></td>
           <td class="row_per_unidad"><?php echo smConfig::get('moneda_SIM').' '.$v['unidad']; ?> </td>
           <td class="row_total"><?php      echo smConfig::get('moneda_SIM'); ?> <span><?php echo $v['total']; ?></span> </td>
           <td class="row_action_eliminar"><a href="#">Eliminar</a></td>

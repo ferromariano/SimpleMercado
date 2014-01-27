@@ -8,6 +8,11 @@
     add_filter('simpleMercado_ajax_add_carro_controller', array( $this, 'filters_actionProductoAdd' ) , 10, 2);
     add_filter('simpleMercado_ajax_add_carro_response',   array( $this, 'filters_responseProductoAdd' ) , 10, 2);    
 
+    add_filter('simpleMercado_ajax_change_count_controller', array( $this, 'filters_actionChangeCount' ) , 10, 2);
+    add_filter('simpleMercado_ajax_change_count_response',   array( $this, 'filters_responseChangeCount' ) , 10, 2);    
+
+
+
     if( ! ($request = $this->validateInteraction()) ) return;
 
     $request = apply_filters( 'simpleMercado_ajax_'.$request['action'].'_request',    $request );
@@ -16,6 +21,13 @@
 
     if($r['exit'] == 1) { exit(); }
     return;
+  }
+
+  public function filters_actionChangeCount(   $r, $params)  {
+    return $r;
+  }
+  public function filters_responseChangeCount( $r, $params ) {
+    ?><div id="simpleMercado_callback"><?php echo smShortcode::init()->producto(array( 'producto_id' => $params['producto']->ID, 'contenido_before' => '<div class="addCarrito">Error: '.$r['txt'].' </div>' )); ?></div><?php 
   }
 
   public function filters_actionProductoAdd( $r, $params ) {

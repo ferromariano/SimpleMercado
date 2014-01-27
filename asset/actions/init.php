@@ -46,10 +46,7 @@
   endif;
   if(is_admin()) { 
     smAdmin::init(); 
-  } 
-
-
-
+  }
 
 
 
